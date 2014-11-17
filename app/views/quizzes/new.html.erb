@@ -1,0 +1,7 @@
+<%= @quiz.inspect %>
+
+<%= form_for @quiz do |f| %>
+
+    <%= f.text_field :title %>
+    <%= f.submit "Create" %>
+<% end %>

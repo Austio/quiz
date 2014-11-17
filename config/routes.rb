@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'dashboard#index'
 
-  resources 'quizes', only: ['index', 'new', 'show']
+  resources 'quizzes', only: ['index', 'new', 'create', 'show']
   resources 'questions', only: ['index']
 
 end
