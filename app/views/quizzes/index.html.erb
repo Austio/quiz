@@ -1,9 +1,17 @@
-<% @quizzes.each do |quiz| %>
-  <%= link_to quiz.title, quiz_path(quiz)%>
-    </br>
-<% end %>
+<%= link_to 'Create Quiz', new_quiz_path %>
 
-</br>
-</br>
+<h3>Quizzes</h3>
 
-<%= link_to 'New Quiz', new_quiz_path %>
+<table>
+  <tr>
+    <th> Title </th>
+  </tr>
+
+
+  <% @quizzes.each do |quiz| %>
+    <tr>
+      <td><%= link_to quiz.title, quiz_path(quiz)%></td>
+    </tr>
+  <% end %>
+
+</table>

@@ -1,4 +1,5 @@
 class QuizzesController < ApplicationController
+
   def index
     @quizzes = Quiz.all
   end
@@ -10,7 +11,7 @@ class QuizzesController < ApplicationController
   def create
     quiz = Quiz.create(quiz_params)
     if quiz
-      render quiz
+      redirect_to quiz
     else
       render 'new', notice: 'Unable to save quiz'
     end
@@ -23,7 +24,8 @@ class QuizzesController < ApplicationController
   private
 
   def quiz_params
-    params.require(:quiz).permit(:title)
+    params.require(:quiz).permit(:title, :question_params)
   end
+
 
 end
