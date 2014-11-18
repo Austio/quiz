@@ -18,13 +18,32 @@ class QuizzesController < ApplicationController
   end
 
   def show
-    @quiz = Quiz.where('id = ?', params[:id])
+    @quiz = find_quiz_and_includes#.includes(:question)
+    @question = @quiz.questions.build
+  end
+
+  def edit
+    @quiz = find_quiz_and_includes
+  end
+
+  def update
+    @quiz = Quiz.find(params[:id])
+    if @quiz.update(quiz_params)
+      # asdf
+      redirect_to quiz_path(@quiz), notice: 'Updated'
+    else
+      render 'update', notice: 'Unable to update'
+    end
   end
 
   private
 
   def quiz_params
-    params.require(:quiz).permit(:title, :question_params)
+    params.require(:quiz).permit(:title, :questions_attributes => [:title, :id, '_destroy'])
+  end
+
+  def find_quiz_and_includes
+    Quiz.includes(:questions).includes(:answers).find(params[:id])
   end
 
 
