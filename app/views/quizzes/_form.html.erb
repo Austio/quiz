@@ -14,7 +14,7 @@
   <%= quiz.text_field :title %>
 
 
-    <%= link_to_add_answer_field "Add Question", quiz, :questions %>
+    <%= link_to_add_field "Add Question", quiz, :questions %>
 
   <%= quiz.fields_for :questions do |builder| %>
     <%= render 'question_fields', f: builder %>
