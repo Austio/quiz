@@ -29,7 +29,6 @@ class QuizzesController < ApplicationController
   def update
     @quiz = Quiz.find(params[:id])
     if @quiz.update(quiz_params)
-      # asdf
       redirect_to quiz_path(@quiz), notice: 'Updated'
     else
       render 'update', notice: 'Unable to update'
@@ -39,7 +38,7 @@ class QuizzesController < ApplicationController
   private
 
   def quiz_params
-    params.require(:quiz).permit(:title, :questions_attributes => [:title, :id, '_destroy'])
+    params.require(:quiz).permit(:title, :questions_attributes => [:title, :id, '_destroy', :answers_attributes => ['_destroy', :correct, :content, :id]])
   end
 
   def find_quiz_and_includes
