@@ -17,3 +17,4 @@ $(document).on 'ready page:load', ->
     $(this).after($(this).data('fields').replace(regexp,time))
     event.preventDefault()
 
+
