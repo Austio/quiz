@@ -1,9 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyString
+answer11:
+  content: yes
   correct: false
 
-two:
-  content: MyString
+answer12:
+  content: no
+  correct: true
+
+answer21:
+  content: yes
   correct: false
+
+answer22:
+  content: no
+  correct: true
